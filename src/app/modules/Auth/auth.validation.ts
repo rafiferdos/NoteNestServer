@@ -5,10 +5,7 @@ const vLoginSchema = z.object({
     .string({ required_error: 'Email is required' })
     .email('Invalid email address')
     .trim(),
-  password: z
-    .string({ required_error: 'Password is required' })
-    .min(6, 'Password must be at least 6 characters')
-    .max(20, 'Password must be at most 20 characters'),
+  password: z.string({ required_error: 'Password is required' }),
 })
 
 export const VAuth = { vLoginSchema }
