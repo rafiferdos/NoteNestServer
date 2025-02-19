@@ -1,9 +1,9 @@
-import { Request, Response } from "express";
-import catchAsync from "../../utils/catchAsync";
-import { VProduct } from "./product.validation";
-import { SProduct } from "./product.service";
-import sendResponse from "../../utils/sendResponse";
-import { StatusCodes } from "http-status-codes";
+import { Request, Response } from 'express'
+import catchAsync from '../../utils/catchAsync'
+import { VProduct } from './product.validation'
+import { SProduct } from './product.service'
+import sendResponse from '../../utils/sendResponse'
+import { StatusCodes } from 'http-status-codes'
 
 const cCreateProduct = catchAsync(async (req, res) => {
   const validatedData = VProduct.vCreateProductSchema.parse(req.body)
@@ -20,7 +20,7 @@ const cCreateProduct = catchAsync(async (req, res) => {
 const cGetAllProducts = catchAsync(async (req, res) => {
   const searchTerm = req.query.searchTerm as string
   const products = await SProduct.sGetAllProducts(searchTerm)
-  
+
   sendResponse(res, {
     statusCode: StatusCodes.OK,
     success: true,
@@ -31,6 +31,7 @@ const cGetAllProducts = catchAsync(async (req, res) => {
 
 const cGetProductById = catchAsync(async (req, res) => {
   const product = await SProduct.sGetProductById(req.params.productId)
+
   if (!product) {
     sendResponse(res, {
       statusCode: StatusCodes.NOT_FOUND,
@@ -39,5 +40,11 @@ const cGetProductById = catchAsync(async (req, res) => {
     })
     return
   }
-})
 
+  sendResponse(res, {
+    statusCode: StatusCodes.OK,
+    success: true,
+    message: 'Product fetched successfully',
+    data: product,
+  })
+})
