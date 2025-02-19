@@ -1,4 +1,3 @@
-import { Request, Response } from 'express'
 import catchAsync from '../../utils/catchAsync'
 import { VProduct } from './product.validation'
 import { SProduct } from './product.service'
