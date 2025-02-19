@@ -24,3 +24,19 @@ const sGetAllProducts = async(
   return await MProduct.find(query)
 }
 
+const sGetProductById = async(
+  productId: string,
+): Promise<IProduct | null> => {
+  return await MProduct.findById(productId)
+}
+
+const sUpdateProduct = async(
+  productId: string,
+  updateData: Partial<IProduct>,
+): Promise<IProduct | null> => {
+  const product
+    = await
+      MProduct
+        .findByIdAndUpdate(productId, updateData, { new: true })
+  return product
+}
