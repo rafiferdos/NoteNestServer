@@ -1,5 +1,7 @@
+import { Types } from 'mongoose'
+
 export interface ICartItem {
-  productId: string
+  productId: Types.ObjectId
   quantity: number
 }
 

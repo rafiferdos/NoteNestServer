@@ -3,7 +3,8 @@ import { ICart, ICartItem } from './cart.interface'
 
 const mCartItemSchema = new Schema<ICartItem>({
   productId: {
-    type: String,
+    type: Schema.Types.ObjectId,
+    ref: 'products',
     required: [true, 'Product ID is required'],
   },
   quantity: {
