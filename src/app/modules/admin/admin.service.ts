@@ -14,8 +14,6 @@ const sMakeUserDeactive = async (userId: string) => {
   return result
 }
 
-// todo: implement admin crud operations
-
 export const SAdmin = {
   sMakeUserDeactive,
 }
