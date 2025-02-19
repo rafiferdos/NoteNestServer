@@ -29,3 +29,15 @@ const cGetAllProducts = catchAsync(async (req, res) => {
   })
 })
 
+const cGetProductById = catchAsync(async (req, res) => {
+  const product = await SProduct.sGetProductById(req.params.productId)
+  if (!product) {
+    sendResponse(res, {
+      statusCode: StatusCodes.NOT_FOUND,
+      success: false,
+      message: 'Product not found',
+    })
+    return
+  }
+})
+
