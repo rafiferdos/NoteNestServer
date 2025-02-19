@@ -41,3 +41,10 @@ const sDeleteProduct = async (productId: string): Promise<IProduct | null> => {
   return product
 }
 
+export const SProduct = {
+  sCreateProduct,
+  sGetAllProducts,
+  sGetProductById,
+  sUpdateProduct,
+  sDeleteProduct,
+}
