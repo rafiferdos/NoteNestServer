@@ -40,3 +40,11 @@ const sUpdateProduct = async(
         .findByIdAndUpdate(productId, updateData, { new: true })
   return product
 }
+
+const sDeleteProduct = async(
+  productId: string,
+): Promise<IProduct | null> => {
+  const product = await MProduct
+    .findByIdAndDelete(productId)
+  return product
+}
