@@ -7,4 +7,4 @@ router.get('/', CCart.cGetCart)
 
 router.post('/', CCart.cAddToCart)
 
-export default router
+export const RCart = router
