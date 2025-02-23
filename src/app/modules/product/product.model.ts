@@ -4,7 +4,7 @@ import { IProduct, ProductCategory } from './product.interface'
 const mProductSchema = new Schema<IProduct>(
   {
     name: {
-      tpye: String,
+      type: String,
       required: [true, 'Name is required'],
     },
     brand: {
