@@ -1,10 +1,11 @@
 import express from 'express'
 import { CCart } from './cart.controller'
+import auth from '../../middlewares/auth'
 
 const router = express.Router()
 
-router.get('/', CCart.cGetCart)
+router.get('/', auth(), CCart.cGetCart)
 
-router.post('/', CCart.cAddToCart)
+router.post('/', auth(), CCart.cAddToCart)
 
 export const RCart = router
