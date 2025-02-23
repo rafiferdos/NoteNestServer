@@ -13,4 +13,4 @@ router.put('/:productId', CProduct.cUpdateProduct)
 
 router.delete('/:productId', CProduct.cDeleteProduct)
 
-export default router
+export const RProduct = router

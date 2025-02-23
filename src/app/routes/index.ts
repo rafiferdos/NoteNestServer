@@ -3,6 +3,7 @@ import { RUser } from '../modules/user/user.route'
 import { RAuth } from '../modules/Auth/auth.route'
 import { RAdmin } from '../modules/admin/admin.route'
 import { RCart } from '../modules/cart/cart.route'
+import { RProduct } from '../modules/product/product.route'
 
 const router = Router()
 
@@ -22,6 +23,10 @@ const moduleRoutes = [
   {
     path: '/cart',
     route: RCart,
+  },
+  {
+    path: '/products',
+    route: RProduct,
   },
 ]
 
