@@ -12,6 +12,7 @@ export interface IProduct extends Document {
   name: string
   brand: string
   price: number
+  imageUrl: string
   category: ProductCategory
   description: string
   quantity: number

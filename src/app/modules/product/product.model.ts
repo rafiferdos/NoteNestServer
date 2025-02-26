@@ -16,6 +16,10 @@ const mProductSchema = new Schema<IProduct>(
       required: true,
       min: [0, 'Price must be positive'],
     },
+    imageUrl: {
+      type: String,
+      required: [true, 'Image URL is required'],
+    },
     category: {
       type: String,
       required: [true, 'Category is required'],
