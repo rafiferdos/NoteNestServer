@@ -17,8 +17,16 @@ const cCreateProduct = catchAsync(async (req, res) => {
 })
 
 const cGetAllProducts = catchAsync(async (req, res) => {
-  const searchTerm = req.query.searchTerm as string
-  const products = await SProduct.sGetAllProducts(searchTerm)
+  const { searchTerm, category, inStock, minPrice, maxPrice } = req.query
+
+  const products = await SProduct.sGetAllProducts({
+    searchTerm: searchTerm as string,
+    category: category as string,
+    inStock:
+      inStock === 'true' ? true : inStock === 'false' ? false : undefined,
+    minPrice: minPrice ? Number(minPrice) : undefined,
+    maxPrice: maxPrice ? Number(maxPrice) : undefined,
+  })
 
   sendResponse(res, {
     statusCode: StatusCodes.OK,
